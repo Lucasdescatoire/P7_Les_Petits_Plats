@@ -1,4 +1,5 @@
-class dataRecettes {
+// eslint-disable-next-line no-unused-vars
+class DataRecettes {
     constructor(data) {
         this.id = data.id
         this.name = data.name
@@ -15,7 +16,7 @@ class dataRecettes {
     //CREATION DES CARTES DES RECETTES
     creaCarteDom(){
         const article = document.createElement("article");
-        article.classList.add("carte_recette");
+        article.classList.add("card_recette");
 
         const img = document.createElement("img");
 

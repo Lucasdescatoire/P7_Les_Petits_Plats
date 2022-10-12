@@ -1,4 +1,4 @@
-@import url("carteRecette.css");
+@import url("cardRecette.css");
 * {
     padding: 0;
     margin: 0;
@@ -16,7 +16,7 @@
 
 /*......................BARRE DE RECHERCHE GLOBALE..................*/
 
-.barre_recherche {
+.search_bar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +26,7 @@
     background: #e7e7ee;
 }
 
-.barre_recherche label {
+.search_bar label {
     display: none;
 }
 
@@ -43,7 +43,7 @@
     font-size: 18px;
 }
 
-.barre_recherche i {
+.search_bar i {
     margin-right: 30px;
     font-size: 25px;
 }
@@ -98,7 +98,7 @@
 }
 /*......................BOUTON DE FILTRE....................*/
 
-.menu_recherche {
+.search_menu {
     display: flex;
     height: 50px;
     width: 50%;
@@ -194,7 +194,7 @@
     color: white;
 }
 
-.menu_recherche i {
+.search_menu i {
     color: white;
     cursor: pointer;
 }
