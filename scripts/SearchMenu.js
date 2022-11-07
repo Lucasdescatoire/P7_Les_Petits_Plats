@@ -104,7 +104,7 @@ function closeTag(e){
 
     displayRecette(recettes);
     displayListe(recettes);
-}
+}     
 
 
 //*************************************************************************************** */
@@ -167,8 +167,8 @@ function filtreTag(){
 
 //evenement au click sur un mot de la liste
 divListeIng.addEventListener("click", (e)  => {
-
-    if(tabIng.includes(e.target.textContent.toLowerCase())){    //permet de ne pas selectionner 2 fois le même mot de la liste
+ console.log(e.target);
+    if(e.target!=divListeIng && tabIng.includes(e.target.textContent.toLowerCase())){    //permet de ne pas selectionner 2 fois le même mot de la liste
     
     }else{
         creaTagDom(e,"ingredients");    //j'appel la fonction de créa dans le dom
@@ -184,6 +184,18 @@ divListeUst.addEventListener("click", (e) => {
     }else{
         creaTagDom(e,"ustensiles");
         filtreTag();
+    }
+});
+
+window.addEventListener("click", (event) => {
+    console.log(event.target);
+    console.log(divListeIng);
+    if (!(event.target === openBtnIngredient)
+    && !(event.target === openBtnAppareil)
+    && !(event.target === openBtnUstensile)) {
+        closeListeAppareils();
+        closeListeIngredients();
+        closeListeUstensiles();
     }
 });
 
@@ -253,8 +265,10 @@ function openListeUstensiles(){
     
 //................FERMETURE DES LISTES
 const closeIngredient = document.getElementById("ingredients-up");
-const closeAppareil = document.getElementById("appareils-up");
+const closeAppareil = document.getElementById("appareils-up");  
 const closeUstensile = document.getElementById("ustensiles-up");
+
+
 
 closeIngredient.addEventListener("click", closeListeIngredients);
 
@@ -263,6 +277,7 @@ function closeListeIngredients(){
     ListeIngredients.style.display = "none"; 
     btnAppareil.style.transform = "translateX(0)";
     btnUstensile.style.transform = "translateX(0)"; 
+    
 }
 
 closeAppareil.addEventListener("click", closeListeAppareils);
