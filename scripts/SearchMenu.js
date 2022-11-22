@@ -64,6 +64,7 @@ var ulTag = document.getElementById("tag");
 
 //Création des balises du Dom pour les tags
 function creaTagDom (e, id){
+    console.log('on passe ? ');
     const liTag = document.createElement("li");
     liTag.className = "li_" + id;
     liTag.id = "li_" + e.target.textContent;
@@ -167,10 +168,9 @@ function filtreTag(){
 
 //evenement au click sur un mot de la liste
 divListeIng.addEventListener("click", (e)  => {
- console.log(e.target);
-    if(e.target!=divListeIng && tabIng.includes(e.target.textContent.toLowerCase())){    //permet de ne pas selectionner 2 fois le même mot de la liste
+ 
+    if(e.target.tagName=="LI" && !tabIng.includes(e.target.textContent.toLowerCase())){    //permet de ne pas selectionner 2 fois le même mot de la liste
     
-    }else{
         creaTagDom(e,"ingredients");    //j'appel la fonction de créa dans le dom
         filtreTag();// j'appel la fonction de trie des recettes en relation avec les tags
     }
@@ -179,9 +179,9 @@ divListeIng.addEventListener("click", (e)  => {
 
 divListeUst.addEventListener("click", (e) => {
 
-    if(tabUst.includes(e.target.textContent.toLowerCase())){
-// empty
-    }else{
+    if(e.target.tagName=="LI" && !tabUst.includes(e.target.textContent.toLowerCase())){
+
+   
         creaTagDom(e,"ustensiles");
         filtreTag();
     }
@@ -201,9 +201,9 @@ window.addEventListener("click", (event) => {
 
 divListeApp.addEventListener("click", (e) => {
 
-    if(tabApp.includes(e.target.textContent.toLowerCase())){
-// empty
-    }else{
+    if(e.target.tagName=="LI" && !tabApp.includes(e.target.textContent.toLowerCase())){
+
+  
         creaTagDom(e,"appareils");
         filtreTag();
     }
