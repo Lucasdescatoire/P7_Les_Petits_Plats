@@ -9,10 +9,13 @@ function filtreBarre(){
     let resultat = [];
 
     if (inputBarre.length >= 3){    //filtre des recettes en relation avec les caractères tapés  
-
-        resultat = recettes.filter(recette => recette.name.toLowerCase().includes(inputBarre.toLowerCase()) || recette.description.toLowerCase().includes(inputBarre.toLowerCase()) || recette.ingredients.some ((ingredient) => ingredient.ingredient.toLowerCase().includes(inputBarre.toLowerCase())));
-
-          recettes = resultat; 
+        for(recette of recettes)  //filtre des recettes en relation avec les caractères tapés  
+        {
+            if(recette.name.toLowerCase().includes(inputBarre.toLowerCase()) || recette.description.toLowerCase().includes(inputBarre.toLowerCase()) || recette.ingredients.some ((ingredient) => ingredient.ingredient.toLowerCase().includes(inputBarre.toLowerCase()))) {
+                resultat.push(recette);
+            }
+        }
+ 
         
     }else{      //sinon affiche toutes les recettes avec un filtre correspondant aux tags selectionnes
 
@@ -35,6 +38,5 @@ function filtreBarre(){
 }
 
 barreChamp.addEventListener("input", filtreBarre);
-
 
 

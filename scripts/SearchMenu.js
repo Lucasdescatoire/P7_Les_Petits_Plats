@@ -64,7 +64,7 @@ var ulTag = document.getElementById("tag");
 
 //Création des balises du Dom pour les tags
 function creaTagDom (e, id){
-    console.log('on passe ? ');
+    
     const liTag = document.createElement("li");
     liTag.className = "li_" + id;
     liTag.id = "li_" + e.target.textContent;
